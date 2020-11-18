@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+      <p><a class='btn btn-success' href="{% url 'logout' %}">Log Out</a></p>
+
+      <div class='row'>
+        {% for product in products %}
+        <div class='col-lg-4'>
+          <img class = 'thumbnail' src="{{product.imageUrl}}">
+          <div class='box-element product'>
+            <h6> <strong>{{product.name}}</strong></h6>
+            <br>
+            <form method='post' action="{% url 'add_toCart' product.id %}">
+            {% csrf_token %}  
+                <button  class="btn btn-outline-secondary add-btn update-cart" >Add to Cart</button>
+            
+            </form>
+            
+            <a class="btn btn-outline-success" href="#">View</a>
+            <h4 style="display:inline-block;float:right;">${{product.price|floatformat:2}}</h4>
+            
+          </div>
+
+        </div>
+        {% endfor %}
+        
+      </div>
+{% else %}
+  <p>You are not logged in</p>
+  <a class="btn btn-success" href="{% url 'login' %}">Log-In</a> As user OR
+
+  <br/>
+  <br/>
+  <br/>
+  <p>Login as Admin</p><a class="btn btn-danger" href="{% url 'custom_admin:index' %}">Admin Sign-In</a>
+{% endif %}
+{% endblock %}
