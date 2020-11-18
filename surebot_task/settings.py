@@ -142,9 +142,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 # }
 
 ### Production settings
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ecom014.herokuapp.com']
 
 DATABASES =  {
     'default': {
