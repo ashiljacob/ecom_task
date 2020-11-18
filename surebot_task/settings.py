@@ -123,25 +123,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 
 
 
-### Development settings
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-DATABASES =  {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME' : 'ecom',
-        'USER' : 'root',
-        'PASSWORD' : 'test@123',
-        'HOST': 'localhost',
-        'PORT': '',
-        # 'default-character-set' : 'utf8',
-                
-    }
-}
-
-# ### Production settings
+# ### Development settings
 # DEBUG = True
 
 # ALLOWED_HOSTS = []
@@ -158,3 +140,23 @@ DATABASES =  {
                 
 #     }
 # }
+
+### Production settings
+DEBUG = True
+
+ALLOWED_HOSTS = []
+
+DATABASES =  {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME' : 'd1ntflkrtb5e1h',
+        'USER' : 'pdgytjuosqobca',
+        'PASSWORD' : '18f210d21630ca759de78109874a5d718d7927f6b7ddb5801da01391767b2f94',
+        'HOST': 'ec2-3-220-98-137.compute-1.amazonaws.com',
+        'PORT': '5432',
+
+                
+    }
+}
+
+
